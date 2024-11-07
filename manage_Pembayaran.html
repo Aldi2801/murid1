@@ -6,69 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Pembayaran</title>
     <style>
+        /* Gaya Umum untuk Halaman */
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f7f7f7;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
         }
         
         .payment-container {
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
             width: 100%;
             max-width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
             text-align: center;
         }
         
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Judul */
         .payment-container h2 {
             margin-bottom: 20px;
-            color: #333;
+            color: #4a90e2;
+            font-size: 1.8em;
         }
-        
+
+        /* Form Group Styling */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: left;
         }
-        
+
         label {
             display: block;
             font-weight: bold;
             color: #555;
         }
-        
+
         input[type="number"],
         select {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
+            padding: 12px;
+            margin-top: 8px;
             font-size: 16px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px;
+            transition: border-color 0.3s;
         }
-        
+
+        input:focus, select:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        /* Tombol */
         button {
             width: 100%;
             padding: 12px;
             font-size: 16px;
             font-weight: bold;
             color: #fff;
-            background-color: #4CAF50;
+            background-color: #6a1b9a;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         button:hover {
-            background-color: #45a049;
+            background-color: #d81b60;
         }
-        
+
+        /* Total Pembayaran */
         #total-container {
             margin-top: 20px;
             font-weight: bold;
@@ -94,7 +119,7 @@
         </div>
         <button type="button" onclick="submitPayment()">Bayar</button>
 
-        <!-- Container for displaying total payment sent -->
+        <!-- Container untuk menampilkan total pembayaran -->
         <div id="total-container">
             Total Pembayaran Terkirim: Rp <span id="total-amount">0</span>
         </div>
